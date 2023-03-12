@@ -23,9 +23,12 @@ updateTimes = () => {
             status.innerHTML = daysArray[i] + ", Currently Closed";
             closeTime.innerHTML = "Till 6am Tomorrow"
         }
-        if (day === 6 || day === 0) {
+        if ( day === i && day === 6 || day === i && day === 0) {
+
             status.innerHTML = daysArray[i] + ", Currently Closed"
+
             closeTime.innerHTML = "Till 6am Monday"
+
         }
     }
 }
