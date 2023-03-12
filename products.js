@@ -4,7 +4,7 @@ const myObj = {
 function Product(name, type, price, pic) { this.name = name;
     this.type = type;
     this.price = price;
-    this.pic = "./images/" + pic;
+    this.pic = "/images/" + pic;
     myObj.productArray.push(this)
 }
 
