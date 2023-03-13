@@ -6,7 +6,6 @@ updateTimes = () => {
     const greeting = document.getElementById("greeting");
     const status = document.getElementById("open_status");
     const closeTime = document.getElementById("close_time");
-    console.log(day)
     if ( hour >= 1 && hour <= 11) { 
         greeting.innerHTML = "Good Morning"
     } else if (12 <= hour && hour <= 16) { 
@@ -24,11 +23,8 @@ updateTimes = () => {
             closeTime.innerHTML = "Till 6am Tomorrow"
         }
         if ( day === i && day === 6 || day === i && day === 0) {
-
             status.innerHTML = daysArray[i] + ", Currently Closed"
-
             closeTime.innerHTML = "Till 6am Monday"
-
         }
     }
 }
@@ -63,3 +59,45 @@ function reveal() {
       }
   }
  }
+toggleCart = () => { 
+    const nav = document.getElementById('cart')
+     if(nav.style.width == "0%" || nav.style.width == "") { 
+        nav.style.width = "100%";
+        
+    } else { 
+        nav.style.width = "0%";
+        
+    }
+ }
+createCartButton = () => { 
+    let btn = document.querySelectorAll('.addCart_btn');
+    for(let i = 0; i < myObj.productArray.length; i++) { 
+        btn[i].addEventListener('click', function() { 
+                addToCart(myObj.productArray[i])
+            })
+    }
+    
+}
+
+addToCart = (product) => { 
+    console.log(product)
+    const notification = document.querySelector('.cart_notification')
+    const display = document.querySelector('.cart_list');
+ 
+    myObj.cartList += `<div class="cart_item"> 
+            <div><img class='cartPic' src='${product.pic}'><span class="cart_name">${product.name}</span>
+            </div>
+          <div class="cartControlsContainer">
+            <button id="minusBtn" onclick= ""><i class="material-icons-outlined">remove</i></button>
+            <p id="quantity">${product.quantity}</p>
+            <button onclick=""><i class="material-icons-outlined">add</i></button>
+          </div>
+          <span class="cartPrice">₦${product.price} <a href="javascript:void(0)" onclick=""><span class="material-icons-outlined">close</span></a></span>
+        </div><hr>`
+    display.innerHTML = myObj.cartList;
+    notification.style.display = "block"
+    
+    setTimeout(function () { 
+        notification.style.display = "none"
+    }, 2500)
+} 

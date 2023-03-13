@@ -24,7 +24,7 @@
             <i class="special">Sharon Bovea</i>
         </div>
         <div class="navbtn_container">
-            <button class="cart_btn"><i class="material-icons-outlined">shopping_cart</i></button>
+            <button onclick="toggleCart()" class="cart_btn"><i class="material-icons-outlined">shopping_cart</i></button>
             <span id="cart_number">Cart 0</span>
         </div>
     </nav>
@@ -82,9 +82,9 @@
         <span class="header-md slide_u">Our Veterinary Services</span>
         
         <div class="vet_card slide_u">
-            <span id="open_status">Currently Open</span>
-            <span id="close_time">Till 6pm</span>
-            <span><a href="tel:+2348033919357"></a></span>
+            <span id="open_status"></span>
+            <span id="close_time"></span>
+            <a href="tel:+2348033919357"><i class="material-icons-outlined">telephone</i> Call Us Now</a>
         </div>
         <span class="header-sm" style="color:white">We Offer</span><br>
         <div class="services_flex slide_r">
@@ -157,23 +157,64 @@
             <p>We offer all products here at our store but we also offer nationwide delivery at affordable price.</p>
        </div>
        
-       
-       <div class="poultry_services_container">
+    </section>   
+    <section class="other_services_container">
            <span class="header-md slide_u">Other Services</span>
-           <div class="poultry_service slide_r">
+           <div class="other_service slide_r">
                <img src="images/poultry.jpg">
                <span>Poultry Breeding</span>
            </div>
-           <div class="poultry_service slide_r">
+           <div class="other_service slide_r">
                <img src="images/eggs.jpg">
                <span>Eggs & Other Poultry Products</span>
            </div>
-           <div class="poultry_service slide_r">
+           <div class="other_service slide_r">
                <img src="images/consultant.jpg">
                <span>Consultancy & Management</span>
            </div>
-       </div>
+       
    </section>
+   <footer>
+      <div class="footerLogo_container">
+          <h2>Sharon Bovea <span>Agribusiness</span></h2>
+          
+          <div class="socialLinks">
+              <a href="/"><i class="bi bi-whatsapp"></i></a>
+              <a href="/"><i class="bi bi-facebook"></i></a>
+             
+          </div>
+      </div>
+      <div class="credits">
+          <h4>Address</h4>
+          <span>SHOP A3, Akobo Mall, Opposite Army Barracks 1st Gate, Akobo-Ojurin, Oyo State, Nigeria.</span>
+          <h4>Contact</h4>
+          <a href="tel:+2348033919357">+2348033919357</a>
+          <a href="tel:+2348098919357">+2348098919357</a>
+          <hr>
+          <a href="https://www.nrg.netlify.app">Site Credits</a>
+          <p>Copyright © Sharon Bovea Agribusiness | 2023</p>
+      </div>
+  </footer>
+
+
+
+<!--Hidden by default-->
+  <aside id="cart">
+      <a href="javascript:void(0)" onclick="toggleCart()">
+          <span class="header-sm material-icons-outlined">close</span>
+      </a>
+      <div class="cart_list">
+          
+      </div>
+      
+      <div class="checkOutContainer">
+          <p>Coming Soon</p>
+      </div>
+  </aside>
+  
+  <span class="cart_notification">
+      1 item addded to cart 🛒
+  </span>
   <!-- Project -->
   <script src="main.js"></script>
   <script src="products.js"></script>

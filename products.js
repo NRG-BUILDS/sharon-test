@@ -1,10 +1,12 @@
 const myObj = { 
-    productArray: []
+    productArray: [],
+    cartList: ""
 }
 function Product(name, type, price, pic) { this.name = name;
     this.type = type;
     this.price = price;
     this.pic = "images/" + pic;
+    this.quantity = 1
     myObj.productArray.push(this)
 }
 
@@ -52,11 +54,12 @@ console.log(myObj.productArray)
 
 
 showProjects = () => { 
-    const display = document.querySelector('.agriproduct_container')
+    const display = document.querySelector('.agriproduct_container');
+    display.innerHTML = ""
     const array = myObj.productArray
     let text = ""
     for (let i = 0; i < array.length; i++) { 
-        text += `<div class="agriproduct">
+        text = `<div class="agriproduct">
                <img src="${array[i].pic}" alt="${array[i].name}" class="product_pic">
                <span class="header-md">${array[i].name}</span>
                <hr>
@@ -69,7 +72,9 @@ showProjects = () => {
                    <button class="bluebtn addCart_btn">Add to cart <i class="material-icons-outlined">add_shopping_cart</i></button>
                </div>
            </div>`
+        display.innerHTML += text;   
+         
     }
-    display.innerHTML = text
+    createCartButton()  
 }
 showProjects()
