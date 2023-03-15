@@ -24,8 +24,8 @@
             <i class="special">Sharon Bovea</i>
         </div>
         <div class="navbtn_container">
-            <button onclick="toggleCart()" class="cart_btn"><i class="material-icons-outlined">shopping_cart</i></button>
-            <span id="cart_number">Cart 0</span>
+            <button onclick="toggleCart()" class="cart_btn"><i class="material-icons-outlined">shopping_cart</i> Cart</button>
+            
         </div>
     </nav>
     <header class="hero">
@@ -129,19 +129,7 @@
        <span class="header-sm slide_u">Agribusiness</span>
        <span class="header-md slide_u">Our Products</span>
        <div class="agriproduct_container">
-           <div class="agriproduct">
-               <img src="chicken.jpg" alt="chicken" class="product_pic">
-               <span class="header-md">Chicken</span>
-               <hr>
-               <span class="old_price"><del>₦6000.00</del></span>
-               <span class="price">₦5499.99</span>
-               <span class="material-icons-outlined">star</span>
-               <span class="product_type">Poultry</span>
-               <div class="btns_container">
-                   <button class="bluebtn">Buy Now <i class="material-icons-outlined">navigate_next</i></button>
-                   <button class="bluebtn">Add to cart <i class="material-icons-outlined">add_shopping_cart</i></button>
-               </div>
-           </div>
+           
        </div>
    </section>
    <section id="poultry">
@@ -200,19 +188,19 @@
 
 <!--Hidden by default-->
   <aside id="cart">
-      <a href="javascript:void(0)" onclick="toggleCart()">
-          <span class="header-sm material-icons-outlined">close</span>
+      <a class="header-sm" href="javascript:void(0)" onclick="toggleCart()">
+          <span class=" material-icons-outlined">close</span> Close Cart
       </a>
       <div class="cart_list">
           
       </div>
       
       <div class="checkOutContainer">
-          <p>Coming Soon</p>
+         
       </div>
   </aside>
   
-  <span class="cart_notification">
+  <a href="javascript:void(0)" onclick="toggleCart()"><span class="cart_notification">
       1 item addded to cart 🛒
   </span>
   <!-- Project -->

@@ -1,15 +1,3 @@
-const myObj = { 
-    productArray: [],
-    cartList: ""
-}
-function Product(name, type, price, pic) { this.name = name;
-    this.type = type;
-    this.price = price;
-    this.pic = "images/" + pic;
-    this.quantity = 1
-    myObj.productArray.push(this)
-}
-
 const chickenFrozen = new Product( 
     "Frozen Chicken (per kg)",
     "Meat",
@@ -48,11 +36,23 @@ const pork = new Product(
     "pork.jpg"
 )
 
-console.log(myObj.productArray)
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+//=============DO NOT TOUCH============//
 showProjects = () => { 
     const display = document.querySelector('.agriproduct_container');
     display.innerHTML = ""

@@ -59,6 +59,24 @@ function reveal() {
       }
   }
  }
+ 
+
+//=====product and cart code
+//===NOTE: Product objects are stored in 'product.js'
+const myObj = { 
+    productArray: [],
+    cartList: "",
+    cartListArray: []
+}
+function Product(name, type, price, pic) { this.name = name;
+    this.type = type;
+    this.price = price;
+    this.pic = "images/" + pic;
+    this.quantity = 1;
+    this.totalPrice = price
+    myObj.productArray.push(this)
+}
+
 toggleCart = () => { 
     const nav = document.getElementById('cart')
      if(nav.style.width == "0%" || nav.style.width == "") { 
@@ -68,7 +86,8 @@ toggleCart = () => {
         nav.style.width = "0%";
         
     }
- }
+    
+}
 createCartButton = () => { 
     let btn = document.querySelectorAll('.addCart_btn');
     for(let i = 0; i < myObj.productArray.length; i++) { 
@@ -80,24 +99,80 @@ createCartButton = () => {
 }
 
 addToCart = (product) => { 
-    console.log(product)
     const notification = document.querySelector('.cart_notification')
-    const display = document.querySelector('.cart_list');
- 
-    myObj.cartList += `<div class="cart_item"> 
-            <div><img class='cartPic' src='${product.pic}'><span class="cart_name">${product.name}</span>
-            </div>
-          <div class="cartControlsContainer">
-            <button id="minusBtn" onclick= ""><i class="material-icons-outlined">remove</i></button>
-            <p id="quantity">${product.quantity}</p>
-            <button onclick=""><i class="material-icons-outlined">add</i></button>
-          </div>
-          <span class="cartPrice">₦${product.price} <a href="javascript:void(0)" onclick=""><span class="material-icons-outlined">close</span></a></span>
-        </div><hr>`
-    display.innerHTML = myObj.cartList;
-    notification.style.display = "block"
+    myObj.cartListArray.push(product);
+    renderCart();
     
+    notification.style.display = "block"
     setTimeout(function () { 
         notification.style.display = "none"
     }, 2500)
+    
 } 
+
+renderCart = () => { 
+    const display = document.querySelector('.cart_list');
+    const product = myObj.cartListArray
+    
+    let text = ""
+    for (let i = 0; i< product.length; i++) { 
+        text += `<div class="cart_item"> 
+                <div><img class='cartPic' src='${product[i].pic}'><span class="cart_name">${product[i].name}</span>
+                </div>
+              <div class="cartControlsContainer">
+                <button class='add_btn'><i class="material-icons-outlined">add</i></button>
+                <p class="quantity">${product[i].quantity}</p>
+                <button class='subtract_btn'><i class="material-icons-outlined">remove</i></button>
+              </div>
+              <span class="cartPrice">₦${product[i].totalPrice} <a href="javascript:void(0)" onclick="removeFromCart(${i})"><span class="material-icons-outlined">close</span></a></span>
+            </div>`
+    }
+    
+    display.innerHTML = text;
+    createQuantityBtns();
+    renderTotal();
+}
+
+createQuantityBtns = () => { 
+    const subBtn = document.querySelectorAll('.subtract_btn');
+    const addBtn = document.querySelectorAll('.add_btn');
+    let list = myObj.cartListArray
+    for(let i = 0; i < list.length; i++) { 
+        addBtn[i].addEventListener('click', function() { 
+            changeQuantity(i, list[i].quantity, 1)
+        })
+        subBtn[i].addEventListener('click', function() { 
+            changeQuantity(i, list[i].quantity, -1)
+        })
+    }
+}
+changeQuantity = (prodIndex, quant, num) =>  { 
+    if (num === -1 && quant === 1) { 
+        quant = 1
+    } else { 
+        quant += num
+    }
+    
+    myObj.cartListArray[prodIndex].quantity = quant;
+    myObj.cartListArray[prodIndex].totalPrice= 
+    myObj.cartListArray[prodIndex].price * quant;
+    renderCart();
+}
+
+renderTotal = () => { 
+    const display = document.querySelector('.checkOutContainer')
+    const cartList = myObj.cartListArray;
+    let total = 0;
+    
+    for(let i = 0; i < cartList.length; i++) { 
+        total += cartList[i].totalPrice
+    }
+    display.innerHTML = `<span class="header-sm">Total: ${cartList.length} items</span>
+          <h4 class="header-md">₦${total}</h4>
+          <button class="checkOut_btn">Buy Now</button>`
+}
+
+removeFromCart = (index) => { 
+    myObj.cartListArray.splice(index, 1)
+    renderCart();
+}
