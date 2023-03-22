@@ -6,6 +6,7 @@ updateTimes = () => {
     const greeting = document.getElementById("greeting");
     const status = document.getElementById("open_status");
     const closeTime = document.getElementById("close_time");
+    
     if ( hour >= 1 && hour <= 11) { 
         greeting.innerHTML = "Good Morning"
     } else if (12 <= hour && hour <= 16) { 
@@ -18,7 +19,7 @@ updateTimes = () => {
         if ( day === i && hour < 18) { 
             status.innerHTML = daysArray[i] + ", Currently Open";
             closeTime.innerHTML = "Till 6pm This Evening"
-        } else if(day === i && hour > 18) { 
+        } else if(day === i && hour >= 18) { 
             status.innerHTML = daysArray[i] + ", Currently Closed";
             closeTime.innerHTML = "Till 6am Tomorrow"
         }
@@ -28,7 +29,7 @@ updateTimes = () => {
         }
     }
 }
-updateTimes()
+updateTimes();
 
 
 window.addEventListener("scroll", reveal);
@@ -59,7 +60,17 @@ function reveal() {
       }
   }
  }
- 
+function navbarReveal() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        document.querySelector(".nav").style.background = "rgba(255, 255, 255, 1)";
+        document.querySelector('.nav').style.color = "black"
+  } else {
+    document.querySelector(".nav").style.background = "rgba(255, 255, 255, 0)";
+    document.querySelector('.nav').style.color = "white"
+  }
+}
+navbarReveal()
+window.addEventListener("scroll", navbarReveal)
 
 //=====product and cart code
 //===NOTE: Product objects are stored in 'product.js'
@@ -113,7 +124,7 @@ addToCart = (product) => {
 renderCart = () => { 
     const display = document.querySelector('.cart_list');
     const product = myObj.cartListArray
-    
+    display.innerHTML = ''
     let text = ""
     for (let i = 0; i< product.length; i++) { 
         text += `<div class="cart_item"> 
@@ -163,11 +174,12 @@ renderTotal = () => {
     const display = document.querySelector('.checkOutContainer')
     const cartList = myObj.cartListArray;
     let total = 0;
-    
+    let totalUnits = 0
     for(let i = 0; i < cartList.length; i++) { 
-        total += cartList[i].totalPrice
+        total += cartList[i].totalPrice;
+        totalUnits += cartList[i].quantity
     }
-    display.innerHTML = `<span class="header-sm">Total: ${cartList.length} items</span>
+    display.innerHTML = `<span class="header-sm">Total: ${cartList.length} items (${totalUnits} units)</span>
           <h4 class="header-md">₦${total}</h4>
           <button class="checkOut_btn">Buy Now</button>`
 }

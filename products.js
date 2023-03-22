@@ -61,7 +61,7 @@ showProjects = () => {
     for (let i = 0; i < array.length; i++) { 
         text = `<div class="agriproduct">
                <img src="${array[i].pic}" alt="${array[i].name}" class="product_pic">
-               <span class="header-md">${array[i].name}</span>
+               <span class="header-md slide_r">${array[i].name}</span>
                <hr>
                <span class="old_price"><del>₦${array[i].price + 1999.99}</del></span>
                <span class="price">₦${array[i].price}</span>
