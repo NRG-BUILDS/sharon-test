@@ -60,17 +60,22 @@ showProjects = () => {
     let text = ""
     for (let i = 0; i < array.length; i++) { 
         text = `<div class="agriproduct">
-               <img src="${array[i].pic}" alt="${array[i].name}" class="product_pic">
-               <span class="header-md slide_r">${array[i].name}</span>
-               <hr>
-               <span class="old_price"><del>₦${array[i].price + 1999.99}</del></span>
-               <span class="price">₦${array[i].price}</span>
-               <span class="material-icons-outlined">star</span>
-               <span class="product_type">${array[i].type}</span>
-               <div class="btns_container">
-                   <button class="bluebtn buy_btn">Buy Now <i class="material-icons-outlined">navigate_next</i></button>
-                   <button class="bluebtn addCart_btn">Add to cart <i class="material-icons-outlined">add_shopping_cart</i></button>
-               </div>
+                    <div class='agriproduct_img'>
+                    <img src="${array[i].pic}" alt="${array[i].name}" class="product_pic">
+                    </div>
+                    <div class='agriproduct_info'>
+                        <span class="header-md slide_r">${array[i].name}</span>
+                        <hr>
+                        <span class="old_price"><del>₦${array[i].price + 1999.99}</del></span>
+                        <span class="price">₦${array[i].price}</span>
+                        <span class="material-icons-outlined">star</span>
+                        <span class="product_type">${array[i].type}</span>
+                        <div class="btns_container">
+                            <a href='order.html'><button class="bluebtn buy_btn">Buy Now <i class="material-icons-outlined">navigate_next</i></button></a>
+                            <button class="bluebtn addCart_btn">Add to cart <i class="material-icons-outlined">add_shopping_cart</i></button>
+                        </div>
+                    </div>
+               
            </div>`
         display.innerHTML += text;   
          

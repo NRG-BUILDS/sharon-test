@@ -91,7 +91,7 @@ function Product(name, type, price, pic) { this.name = name;
 toggleCart = () => { 
     const nav = document.getElementById('cart')
      if(nav.style.width == "0%" || nav.style.width == "") { 
-        nav.style.width = "100%";
+        nav.style.width = "480px";
         
     } else { 
         nav.style.width = "0%";
@@ -101,10 +101,16 @@ toggleCart = () => {
 }
 createCartButton = () => { 
     let btn = document.querySelectorAll('.addCart_btn');
+    let buyBtn = document.querySelectorAll('.buy_btn');
     for(let i = 0; i < myObj.productArray.length; i++) { 
         btn[i].addEventListener('click', function() { 
                 addToCart(myObj.productArray[i])
-            })
+            });
+        buyBtn[i].addEventListener('click', function() { 
+            myObj.cartListArray.push(
+                myObj.productArray[i]);
+            checkOut();    
+        })    
     }
     
 }
@@ -181,10 +187,13 @@ renderTotal = () => {
     }
     display.innerHTML = `<span class="header-sm">Total: ${cartList.length} items (${totalUnits} units)</span>
           <h4 class="header-md">₦${total}</h4>
-          <button class="checkOut_btn">Buy Now</button>`
+          <a href='order.html'><button class="checkOut_btn" onclick="checkOut()" >Buy Now</button></a>`
 }
 
 removeFromCart = (index) => { 
     myObj.cartListArray.splice(index, 1)
     renderCart();
+}
+checkOut = () => { 
+    sessionStorage.setItem("orderArray", JSON.stringify(myObj.cartListArray))
 }
