@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="order.css">
+    <title>Order Page | Sharon Bovea Agribusiness</title>
+</head>
+
+<body>
+    <section class="order_section">    
+    <div class="order_panel">
+        <div class="heading">
+            <span>Order From <span class="special_text">Sharon Bovea Agribusiness</span></span>
+        </div>
+        <div class="form_container">
+            <form action="" method="get">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" placeholder="ex. Ade Musa" required>
+                
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" placeholder="ex. validemail@example.com" required>
+                
+                <details>
+                    <summary>
+                        View Items In Cart
+                        <span id="totalPrice" style="float: right"></span>
+                    </summary>
+                    <div class="cart_container">
+                        nothing to see here...
+                    </div>
+                </details>
+                
+                <label for="optMessage">Optional Message:</label>
+                <textarea name="optMessage" id="" cols="25" rows="10" placeholder="I would also like to add..."></textarea>
+                
+                <input type="submit" value="Order Now">
+            </form>
+            
+        </div>
+    </div>
+    </section>
+<script src="order.js"></script>    
+</body>
+
+</html>

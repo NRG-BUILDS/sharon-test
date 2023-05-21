@@ -91,7 +91,7 @@ function Product(name, type, price, pic) { this.name = name;
 toggleCart = () => { 
     const nav = document.getElementById('cart')
      if(nav.style.width == "0%" || nav.style.width == "") { 
-        nav.style.width = "480px";
+        nav.style.width = "100%";
         
     } else { 
         nav.style.width = "0%";
