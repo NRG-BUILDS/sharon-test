@@ -1,5 +1,5 @@
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Hero from './views/Hero';
 import Section2 from './views/Section2';
 import Section3 from './views/Section3';
