@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply text-bodyText font-light
+}
+
+h1, h2, h3, h5 {
+    @apply font-bold my-2
+}
+.drpdwn {
+    position: relative;
+}
+.drpdwn-content {
+    position: absolute;
+    display: none;
+    border-radius: 8px;
+}
+.drpdwn:hover .drpdwn-content {
+    display: block;
+    margin-top: 4px;
+}
+.reveal { 
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 1s;
+}
+.reveal.active { 
+    transform: translateY(0);
+    opacity: 1;
+}
+.zoom { 
+    scale: 0.8;
+    opacity: 0;
+    transition: 1.5s;
+}
+.zoom.active { 
+    scale: 1;
+    opacity: 1;
+}
