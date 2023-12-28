@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../assets/images/logos/logo_VKBBW51.png";
+import logo from "../assets/images/logos/logo.png";
 import Icons from "./Icons";
 import React, { useEffect, useState } from "react";
 import { getImgUrl } from "../utils";
@@ -9,7 +9,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white z-50">
-      <div className="shrinkable overflow- duration-150 flex justify-between items-center p-4 md:p-6 shadow-md md:shadow-none">
+      <div className="shrinkable  duration-150 flex justify-between items-center p-4 md:p-4 shadow-md md:shadow-none">
         <div className="md:hidden">
           <button
             onClick={() => {
@@ -26,7 +26,7 @@ const Navbar = () => {
           </button>
         </div>
         <div className="logo">
-          <img src={logo} alt="" className="h-12" />
+          <img src={logo} alt="" className="h-16" />
         </div>
         <div className="hidden md:block w-2/4 relative">
           <div className="absolute top-1/2 right-4 -translate-y-1/2">

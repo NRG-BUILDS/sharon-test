@@ -61,12 +61,12 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-y-8 justify-between p-4 w-full">
             <div>
               <img
-                src={getImgUrl("logo_VKBBW51.png", "logos")}
+                src={require("../assets/images/logos/logo.png")}
                 alt=""
-                className="w-64"
+                className="w-64 mx-auto"
               />
               <div className="mt-8">
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex items-center gap-y-2 mt-4">
                   <img
                     src={getImgUrl("icon-location.svg", "icons")}
                     alt=""
@@ -77,7 +77,7 @@ const Footer = () => {
                     {data.address}
                   </p>
                 </div>
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex items-center gap-y-2 mt-4">
                   <img
                     src={getImgUrl("icon-contact.svg", "icons")}
                     alt=""
@@ -88,7 +88,7 @@ const Footer = () => {
                     {data.phone}
                   </p>
                 </div>
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex items-center gap-y-2 mt-4">
                   <img
                     src={getImgUrl("icon-email-2.svg", "icons")}
                     alt=""
@@ -99,7 +99,7 @@ const Footer = () => {
                     {data.email}
                   </p>
                 </div>
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex items-center gap-y-2 mt-4">
                   <img
                     src={getImgUrl("icon-clock.svg", "icons")}
                     alt=""
@@ -204,7 +204,7 @@ const Footer = () => {
 const ClaimCard = ({ icon, title, message }) => {
   return (
     <div className="reveal bg-gray-100 rounded-lg text-lg p-4 flex items-center gap-4 justify-center max-w-xs mx-auto my-4">
-      <img src={getImgUrl(icon, "icons")} alt="" className="w-20" />
+      <img src={""} alt="" className="w-20" />
       <div className="px-2">
         <h3 className="font-bold">{title}</h3>
         <p className="text-sm opacity-70">{message}</p>
