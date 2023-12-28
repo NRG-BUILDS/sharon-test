@@ -3,48 +3,39 @@
 @tailwind utilities;
 
 body {
-  @apply text-bodyText bg-offWhite font-light;
-}
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-}
-body {
-  @apply text-fontPrimary;
-}
-a {
-  @apply transition-all;
-}
-.slick {
-  @apply hover:-translate-y-3 transition-all;
-}
-.reveal {
-  transform: translateY(8px);
-  opacity: 0;
-  transition: 0.8s;
-}
-.reveal.active {
-  transform: translateY(0);
-  opacity: 1;
+    @apply text-bodyText font-light
 }
 
-.hero {
-  background: #06113c;
+h1, h2, h3, h5 {
+    @apply font-bold my-2
 }
-.hero .special {
-  background: linear-gradient(45deg, black, #3bb77e, #e41b17);
-  background-size: 600% 100%;
-  animation: variableColor 5s infinite alternate;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.drpdwn {
+    position: relative;
 }
-@keyframes variableColor {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 100%;
-  }
+.drpdwn-content {
+    position: absolute;
+    display: none;
+    border-radius: 8px;
+}
+.drpdwn:hover .drpdwn-content {
+    display: block;
+    margin-top: 4px;
+}
+.reveal { 
+    transform: translateY(20px);
+    opacity: 0;
+    transition: 1s;
+}
+.reveal.active { 
+    transform: translateY(0);
+    opacity: 1;
+}
+.zoom { 
+    scale: 0.8;
+    opacity: 0;
+    transition: 1.5s;
+}
+.zoom.active { 
+    scale: 1;
+    opacity: 1;
 }
