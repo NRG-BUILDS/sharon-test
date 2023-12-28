@@ -21,44 +21,53 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Blogr by NRG</title>
+    <title>Sharon Bovea Agribusinesses</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      window.onscroll = () => {shrinkNav()}
+
+      const shrinkNav = () => {
+        const nav = document.querySelector('.shrinkable')
+        if (document.body.scrollTop > 120 || 
+        document.documentElement.scrollTop > 120) {
+          nav.style.height = 0
+          nav.style.padding = 0
+          nav.style.overflow = 'hidden'
+          // nav.style.display = 'none'
+        } else {
+          nav.style.height = "auto"
+          nav.style.padding = "16px"
+          nav.style.overflow = "visible"
+
+        }
+      }
+    </script>
     <script>
         window.addEventListener("scroll", reveal);
         window.addEventListener("load", reveal);
- 
+
         //to play slide up and side animations on scroll
         function reveal() {
-          let reveals = document.querySelectorAll(".reveal");
-          let zooms = document.querySelectorAll(".zoom");
-          for (let i = 0; i < reveals.length; i++) {
+          let reveal = document.querySelectorAll(".reveal");
+          for (let i = 0; i < reveal.length; i++) {
             let windowHeight = window.innerHeight;
-            let elementTop = reveals[i].getBoundingClientRect().top;
-            let elementVisible = 150;
+            let elementTop = reveal[i].getBoundingClientRect().top;
+            let elementVisible = 100;
             if (elementTop < windowHeight - elementVisible) {
-              reveals[i].classList.add("active");
+              reveal[i].classList.add("active");
             } else {
-              reveals[i].classList.remove("active");
-            }
-          }
-          for (let i = 0; i < zooms.length; i++) {
-            let windowHeight = window.innerHeight;
-            let elementTop = zooms[i].getBoundingClientRect().top;
-            let elementVisible = 15;
-            if (elementTop < windowHeight - elementVisible) {
-              zooms[i].classList.add("active");
-            } else {
-              zooms[i].classList.remove("active");
+              reveal[i].classList.remove("active");
             }
           }
         }
         // To check the scroll position on page load
         reveal();
-
-    </script>
+        
+</script>
   </body>
 </html>
