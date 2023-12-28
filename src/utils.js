@@ -11,5 +11,5 @@ export const getRatingIcons = (rating) => {
 };
 
 const StarIcon = () => {
-  return <i className="fa-solid fa-star"></i>;
+  return <i className="fa-solid fa-star text-orange-300"></i>;
 };
