@@ -62,12 +62,6 @@ const Cart = () => {
   return (
     <section className="px-4 max-w-5xl mx-auto">
       <div className="flex items-center gap-2">
-        <img
-          src={require("../../assets/images/icons/icon-cart.svg")}
-          alt=""
-          className="w-10"
-        />
-
         <h2 className="text-4xl font-bold">Cart</h2>
       </div>
       {/* CART DISPLAY WHEN NOT EMPTY */}
@@ -108,7 +102,7 @@ const Cart = () => {
           </div>
         )}
       </div>
-      {openCheckoutModal ? <Checkout /> : null}
+      {openCheckoutModal ? <Checkout setModal={setOpenCheckoutModal} /> : null}
     </section>
   );
 };

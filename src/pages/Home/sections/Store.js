@@ -66,7 +66,7 @@ const Store = () => {
   // ];
   return (
     <>
-      <section className="py-28 px-4 bg-white">
+      <section className="py-28 px-4 bg-white" id="store">
         <h2 className="text-3xl text-center my-4">
           The Agribusiness <span className="text-Green">Store</span>
         </h2>

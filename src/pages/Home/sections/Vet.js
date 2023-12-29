@@ -4,11 +4,13 @@ const Vet = () => {
   const { day, hour, daysArray, minutes } = updateTimes();
   return (
     <>
-      <section className="py-28 px-4 bg-fontPrimary">
-        <h2 className="text-3xl text-white py-4">Our Vetrinary Services</h2>
+      <section className="py-28 bg-fontPrimary" id="vet">
+        <h2 className="text-3xl text-white text-center py-4">
+          Our Vetrinary Services
+        </h2>
         <div className="grid md:grid-cols-4 gap-4">
-          <div className="md:col-span-3 overflow-x-auto flex gap-4">
-            <div className="flex-none bg-white max-w-[250px] rounded-lg overflow-clip">
+          <div className="md:col-span-3 overflow-x-auto flex gap-4 py-6">
+            <div className="ml-4 flex-none bg-white max-w-[250px] rounded-lg overflow-clip">
               <img
                 src={require("../../../assets/images/banners/clinic.jpg")}
                 alt=""
@@ -83,7 +85,7 @@ const Vet = () => {
               </div>
             </div>
           </div>
-          <div className="md:col-span-1 border rounded-xl p-4 text-white">
+          <div className="md:col-span-1 border rounded-xl p-4 mx-4 text-white">
             <h4 className="font-bold text-xl my-2">Ofice Hours</h4>
             <ul>
               <li className="my-2">Monday:</li>
