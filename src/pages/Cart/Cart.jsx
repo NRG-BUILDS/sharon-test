@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { decreaseQty, increaseQty, removeItem } from "../../redux/cart";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Checkout from "../Checkout/Checkout";
 
 const Cart = () => {
+  const [openCheckoutModal, setOpenCheckoutModal] = useState(false);
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -83,7 +85,10 @@ const Cart = () => {
                 <p className="text-xl opacity-60">Total:</p>
                 <p className="text-3xl font-bold">₦{getTotal()}</p>
               </div>
-              <button className="block bg-Green text-white p-4 font-bold w-full rounded active:bg-slate-700">
+              <button
+                onClick={() => setOpenCheckoutModal(true)}
+                className="block bg-Green text-white p-4 font-bold w-full rounded active:bg-slate-700"
+              >
                 Checkout
               </button>
             </div>
@@ -103,6 +108,7 @@ const Cart = () => {
           </div>
         )}
       </div>
+      {openCheckoutModal ? <Checkout /> : null}
     </section>
   );
 };

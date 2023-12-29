@@ -132,17 +132,17 @@ const ItemPage = () => {
               </div>
             </div>
             <div className=" col-span-3 rounded lg border p-4">
-              <h2 className="text-3xl font-bold">{item.product_name}</h2>
+              <h2 className="text-2xl font-bold">{item.product_name}</h2>
               <div className="py-4 flex gap-2">
                 <div className="flex items-center text-orange-400">
                   {getRatingIcons(Number(item.rating))}
                 </div>
               </div>
-              <div className="py-8 flex w-full flex-wrap items-end gap-2">
-                <span className="text-Green text-6xl font-extrabold">
+              <div className="py-6 flex w-full flex-wrap items-end gap-2">
+                <span className="text-Green text-5xl leading-none my-0 font-extrabold">
                   ₦{item.price}
                 </span>
-                <span className="text-gray-400 text-xl leading-none font-extrabold">
+                <span className="text-gray-400 text-xl  font-extrabold">
                   <del>₦{item.price * 1.3}</del>
                 </span>
               </div>
