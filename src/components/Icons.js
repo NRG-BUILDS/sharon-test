@@ -4,7 +4,13 @@ const getImgUrl = (name) => {
 };
 
 const Icons = ({ name, style }) => {
-  return <img src={getImgUrl(name)} alt="" className={style} />;
+  return (
+    <img
+      src={require("../assets/images/icons/" + name)}
+      alt=""
+      className={style}
+    />
+  );
 };
 
 export default Icons;

@@ -3,9 +3,11 @@ import logo from "../assets/images/logos/logo.png";
 import Icons from "./Icons";
 import React, { useEffect, useState } from "react";
 import { getImgUrl } from "../utils";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const { list } = useSelector((state: any) => state.cartList);
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-white z-50">
@@ -38,6 +40,11 @@ const Navbar = () => {
             <div className="flex gap-2 items-end">
               <div className="relative">
                 <Icons name={"icon-cart.svg"} style={"w-7"} />
+                {list.length != 0 && (
+                  <span className="absolute -top-3 -right-3 bg-Green rounded-full flex justify-center items-center w-6 aspect-square text-white text-xs">
+                    {list.length}
+                  </span>
+                )}
               </div>
               <span className="hidden md:block">Cart</span>
             </div>

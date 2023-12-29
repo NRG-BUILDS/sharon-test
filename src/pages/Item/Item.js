@@ -4,17 +4,19 @@ import { Link, useParams } from "react-router-dom";
 import Loader from "../../components/Loader";
 import supabase from "../../config/supabaseClient";
 import SmallProductCard from "../../components/SmallProductCard";
+import { addItem } from "../../redux/cart";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import { useDispatch } from "react-redux";
+
 const ItemPage = () => {
   const { itemSlug } = useParams();
-  //   const {
-  //     data: item,
-  //     isPending,
-  //     error,
-  //   } = useFetch(`shop/products/${itemSlug}`);
 
   const [tableView, setTableView] = useState("description");
   const [qty, setQty] = useState(1);
   const [item, setItem] = useState(null);
+  const dispatch = useDispatch();
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -50,25 +52,25 @@ const ItemPage = () => {
   //   stock: 200,
   // });
 
-  //   const NotifMessage = () => (
-  //     <Link to={"/cart"}>
-  //       <div>
-  //         <p className="text-lg font-bold">Item added to cart</p>
-  //         <span className="opacity-60">Click here to open cart</span>
-  //       </div>
-  //     </Link>
-  //   );
-  //   const notify = () => toast.success(NotifMessage);
-  //   const decreaseQty = () => {
-  //     if (qty > 1) {
-  //       setQty(qty - 1);
-  //     } else {
-  //       setQty(1);
-  //     }
-  //   };
-  //   const increaseQty = () => {
-  //     setQty(qty + 1);
-  //   };
+  const NotifMessage = () => (
+    <Link to={"/cart"}>
+      <div>
+        <p className="text-lg font-bold">Item added to cart</p>
+        <span className="opacity-60">Click here to open cart</span>
+      </div>
+    </Link>
+  );
+  const notify = () => toast.success(NotifMessage);
+  const decreaseQty = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    } else {
+      setQty(1);
+    }
+  };
+  const increaseQty = () => {
+    setQty(qty + 1);
+  };
   const relatedProducts = [
     {
       name: "Hos's Grilled Chicken 1kg",
@@ -150,14 +152,14 @@ const ItemPage = () => {
               <div className="my-8">
                 <div className="rounded border-Green border-2 p-4 flex w-fit items-center gap-6">
                   <button
-                    // onClick={() => decreaseQty()}
+                    onClick={() => decreaseQty()}
                     className="opacity-60 font-bold"
                   >
                     <i className="fa-solid fa-caret-down"></i>
                   </button>
                   <span className="text-Green font-bold">{qty}</span>
                   <button
-                    // onClick={() => increaseQty()}
+                    onClick={() => increaseQty()}
                     className="opacity-60 font-bold"
                   >
                     <i className="fa-solid fa-caret-up"></i>
@@ -167,8 +169,8 @@ const ItemPage = () => {
                   {item.in_stock > 1 && (
                     <button
                       onClick={() => {
-                        // dispatch(addItem({ ...item, qty: qty }));
-                        // notify();
+                        dispatch(addItem({ ...item, qty: qty }));
+                        notify();
                       }}
                       className="p-4 bg-Green text-white rounded flex items-center justify-center gap-2"
                     >
@@ -183,7 +185,7 @@ const ItemPage = () => {
                   {item.in_stock < 1 && (
                     <button
                       onClick={() => {
-                        // toast.error("This product is currently unavailable");
+                        toast.error("This product is currently unavailable");
                       }}
                       className="p-4 bg-orange-400 text-white rounded flex items-center justify-center gap-2"
                     >
