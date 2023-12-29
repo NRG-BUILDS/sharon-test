@@ -16,19 +16,25 @@ body {
 a {
   @apply transition-all;
 }
-.slick {
-  @apply hover:-translate-y-3 transition-all;
-}
-.reveal {
-  transform: translateY(8px);
+/*********ANIMATIONS*******/
+.slide_l {
+  transform: translateX(-80px);
   opacity: 0;
-  transition: 0.8s;
+  transition: 1s cubic-bezier(0.71, 0.07, 0.25, 0.86);
 }
-.reveal.active {
+.slide_l.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide_u {
+  transform: translateY(80px);
+  opacity: 0;
+  transition: 1s cubic-bezier(0.71, 0.07, 0.25, 0.86);
+}
+.slide_u.active {
   transform: translateY(0);
   opacity: 1;
 }
-
 .hero {
   background: #06113c;
 }

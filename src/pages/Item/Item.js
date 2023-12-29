@@ -131,7 +131,7 @@ const ItemPage = () => {
                 />
               </div>
             </div>
-            <div className=" col-span-3 rounded lg border p-4">
+            <div className="slide_l  col-span-3 rounded lg border p-4">
               <h2 className="text-2xl font-bold">{item.product_name}</h2>
               <div className="py-4 flex gap-2">
                 <div className="flex items-center text-orange-400">
@@ -273,14 +273,14 @@ const RelatedProducts = ({ category }) => {
   useEffect(() => {
     const getRelatedItems = async () => {
       console.log("hey");
-      const { relItemsRes, error } = await supabase
+      const { data, error } = await supabase
         .from("Products")
         .select()
         .eq("category", category);
 
-      if (relItemsRes) {
-        setRelItems(relItemsRes);
-        console.log(relItemsRes);
+      if (data) {
+        setRelItems(data);
+        console.log(data);
       }
       if (error) {
         console.log(error);
@@ -291,7 +291,7 @@ const RelatedProducts = ({ category }) => {
 
   return (
     <>
-      <div className=" col-span-2 rounded-lg shadow-xl border p-4">
+      <div className="slide_u col-span-2 rounded-lg shadow-xl border p-4">
         {relItems && (
           <>
             <h2 className="text-2xl font-bold mb-4 px-4">Related Products</h2>

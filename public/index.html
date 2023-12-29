@@ -48,25 +48,46 @@
       }
     </script>
     <script>
-        window.addEventListener("scroll", reveal);
-        window.addEventListener("load", reveal);
+        window.addEventListener("scroll", ()=> {
+          slide_u()
+          slide_l()
+        });
+        window.addEventListener("load", ()=> {
+          slide_u()
+          slide_l()
+        });
 
         //to play slide up and side animations on scroll
-        function reveal() {
-          let reveal = document.querySelectorAll(".reveal");
-          for (let i = 0; i < reveal.length; i++) {
+        function slide_u() {
+          let slide_u = document.querySelectorAll(".slide_u");
+          for (let i = 0; i < slide_u.length; i++) {
             let windowHeight = window.innerHeight;
-            let elementTop = reveal[i].getBoundingClientRect().top;
+            let elementTop = slide_u[i].getBoundingClientRect().top;
             let elementVisible = 100;
             if (elementTop < windowHeight - elementVisible) {
-              reveal[i].classList.add("active");
+              slide_u[i].classList.add("active");
             } else {
-              reveal[i].classList.remove("active");
+              slide_u[i].classList.remove("active");
             }
           }
         }
         // To check the scroll position on page load
-        reveal();
+        slide_u();
+        function slide_l() {
+          let slide_l = document.querySelectorAll(".slide_l");
+          for (let i = 0; i < slide_l.length; i++) {
+            let windowHeight = window.innerHeight;
+            let elementTop = slide_l[i].getBoundingClientRect().top;
+            let elementVisible = 100;
+            if (elementTop < windowHeight - elementVisible) {
+              slide_l[i].classList.add("active");
+            } else {
+              slide_l[i].classList.remove("active");
+            }
+          }
+        }
+        // To check the scroll position on page load
+        slide_l();
         
 </script>
   </body>

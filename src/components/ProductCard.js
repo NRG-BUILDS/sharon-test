@@ -11,9 +11,8 @@ export const ProductCard = ({ item }) => {
     if (num % 2 === 0) return false;
     return true;
   };
-  console.log(tagColor);
   return (
-    <div className="relative max-w-[300px] md:max-w-[250px] mx-auto border border-gray- rounded-xl overflow-clip p-6">
+    <div className="slide_u relative max-w-[300px] md:max-w-[250px] border border-gray- rounded-xl overflow-clip p-6">
       <Link to={"/item/" + item.slug}>
         <img
           src={`https://pvknoybfrjiypopolmkq.supabase.co/storage/v1/object/public/product_image/${item.slug}.jpg?`}
